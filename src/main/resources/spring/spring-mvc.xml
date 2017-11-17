@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:context="http://www.springframework.org/schema/context"
+        xmlns:mvc="http://www.springframework.org/schema/mvc"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.springframework.org/schema/beans"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 配置SpringMVC -->
+    <!-- 1.开启SpringMVC注解模式 -->
+    <mvc:annotation-driven>
+        <mvc:message-converters register-defaults="true">
+            <bean class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter4">
+                <!-- MediaTypes -->
+                <property name="supportedMediaTypes">
+                    <list>
+                        <value>text/html;charset=UTF-8</value>
+                        <value>application/json;charset=UTF-8</value>
+                    </list>
+                </property>
+                <!-- FastJsonConfig -->
+                <property name="fastJsonConfig" ref="fastJsonConfig"/>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+
+    <bean class="com.alibaba.fastjson.support.config.FastJsonConfig" id="fastJsonConfig">
+        <!-- Default charset -->
+        <property name="charset" value="UTF-8"/>
+        <!-- Default dateFormat -->
+        <property name="dateFormat" value="yyyy-MM-dd HH:mm:ss" />
+    </bean>
+
+    <!-- 2.配置jsp 显示ViewResolver -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+
+    <!-- 3.扫描web相关的bean -->
+    <context:component-scan base-package="cn.yycoin.controller">
+        <!-- 制定扫包规则 ,只扫描使用@Controller注解的JAVA类 -->
+        <context:include-filter expression="org.springframework.stereotype.Controller"
+                type="annotation"/>
+    </context:component-scan>
+
+    <!-- 4.静态资源默认servlet配置 -->
+    <mvc:resources location="/static/js/" mapping="/js/**"/>
+
+    <!-- 5.Restful API文档支持 使用Restful API文档时，添加此注解 -->
+    <mvc:default-servlet-handler/>
+
+</beans>

@@ -1,0 +1,614 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.yycoin.dao.THgListlogMapper">
+  <resultMap id="BaseResultMap" type="cn.yycoin.entity.THgListlog">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="backid" jdbcType="VARCHAR" property="backid" />
+    <result column="estimateid" jdbcType="VARCHAR" property="estimateid" />
+    <result column="transportno" jdbcType="VARCHAR" property="transportno" />
+    <result column="fromer" jdbcType="VARCHAR" property="fromer" />
+    <result column="mobile" jdbcType="INTEGER" property="mobile" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="productdis" jdbcType="VARCHAR" property="productdis" />
+    <result column="discription" jdbcType="VARCHAR" property="discription" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="receiver" jdbcType="VARCHAR" property="receiver" />
+    <result column="receivetime" jdbcType="TIMESTAMP" property="receivetime" />
+    <result column="packager" jdbcType="VARCHAR" property="packager" />
+    <result column="packagetime" jdbcType="TIMESTAMP" property="packagetime" />
+    <result column="determiner" jdbcType="VARCHAR" property="determiner" />
+    <result column="determinedes" jdbcType="VARCHAR" property="determinedes" />
+    <result column="determinetime" jdbcType="TIMESTAMP" property="determinetime" />
+    <result column="pricer" jdbcType="VARCHAR" property="pricer" />
+    <result column="pricetime" jdbcType="VARCHAR" property="pricetime" />
+    <result column="payer" jdbcType="VARCHAR" property="payer" />
+    <result column="paytime" jdbcType="VARCHAR" property="paytime" />
+    <result column="sendtransportno" jdbcType="VARCHAR" property="sendtransportno" />
+    <result column="sendtime" jdbcType="TIMESTAMP" property="sendtime" />
+    <result column="usertime" jdbcType="TIMESTAMP" property="usertime" />
+    <result column="creater" jdbcType="VARCHAR" property="creater" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="fj" jdbcType="VARCHAR" property="fj" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    Id, backid, estimateid, transportno, fromer, mobile, province, city, address, productdis, 
+    discription, status, receiver, receivetime, packager, packagetime, determiner, determinedes, 
+    determinetime, pricer, pricetime, payer, paytime, sendtransportno, sendtime, usertime, 
+    creater, createtime, fj
+  </sql>
+  <select id="selectByExample" parameterType="cn.yycoin.entity.THgListlogExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_hg_listlog
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_hg_listlog
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_hg_listlog
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.yycoin.entity.THgListlogExample">
+    delete from t_hg_listlog
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.yycoin.entity.THgListlog">
+    insert into t_hg_listlog (Id, backid, estimateid, 
+      transportno, fromer, mobile, 
+      province, city, address, 
+      productdis, discription, status, 
+      receiver, receivetime, packager, 
+      packagetime, determiner, determinedes, 
+      determinetime, pricer, pricetime, 
+      payer, paytime, sendtransportno, 
+      sendtime, usertime, creater, 
+      createtime, fj)
+    values (#{id,jdbcType=INTEGER}, #{backid,jdbcType=VARCHAR}, #{estimateid,jdbcType=VARCHAR}, 
+      #{transportno,jdbcType=VARCHAR}, #{fromer,jdbcType=VARCHAR}, #{mobile,jdbcType=INTEGER}, 
+      #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{productdis,jdbcType=VARCHAR}, #{discription,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{receiver,jdbcType=VARCHAR}, #{receivetime,jdbcType=TIMESTAMP}, #{packager,jdbcType=VARCHAR}, 
+      #{packagetime,jdbcType=TIMESTAMP}, #{determiner,jdbcType=VARCHAR}, #{determinedes,jdbcType=VARCHAR}, 
+      #{determinetime,jdbcType=TIMESTAMP}, #{pricer,jdbcType=VARCHAR}, #{pricetime,jdbcType=VARCHAR}, 
+      #{payer,jdbcType=VARCHAR}, #{paytime,jdbcType=VARCHAR}, #{sendtransportno,jdbcType=VARCHAR}, 
+      #{sendtime,jdbcType=TIMESTAMP}, #{usertime,jdbcType=TIMESTAMP}, #{creater,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{fj,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.yycoin.entity.THgListlog">
+    insert into t_hg_listlog
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="backid != null">
+        backid,
+      </if>
+      <if test="estimateid != null">
+        estimateid,
+      </if>
+      <if test="transportno != null">
+        transportno,
+      </if>
+      <if test="fromer != null">
+        fromer,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="productdis != null">
+        productdis,
+      </if>
+      <if test="discription != null">
+        discription,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="receiver != null">
+        receiver,
+      </if>
+      <if test="receivetime != null">
+        receivetime,
+      </if>
+      <if test="packager != null">
+        packager,
+      </if>
+      <if test="packagetime != null">
+        packagetime,
+      </if>
+      <if test="determiner != null">
+        determiner,
+      </if>
+      <if test="determinedes != null">
+        determinedes,
+      </if>
+      <if test="determinetime != null">
+        determinetime,
+      </if>
+      <if test="pricer != null">
+        pricer,
+      </if>
+      <if test="pricetime != null">
+        pricetime,
+      </if>
+      <if test="payer != null">
+        payer,
+      </if>
+      <if test="paytime != null">
+        paytime,
+      </if>
+      <if test="sendtransportno != null">
+        sendtransportno,
+      </if>
+      <if test="sendtime != null">
+        sendtime,
+      </if>
+      <if test="usertime != null">
+        usertime,
+      </if>
+      <if test="creater != null">
+        creater,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="fj != null">
+        fj,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="backid != null">
+        #{backid,jdbcType=VARCHAR},
+      </if>
+      <if test="estimateid != null">
+        #{estimateid,jdbcType=VARCHAR},
+      </if>
+      <if test="transportno != null">
+        #{transportno,jdbcType=VARCHAR},
+      </if>
+      <if test="fromer != null">
+        #{fromer,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=INTEGER},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="productdis != null">
+        #{productdis,jdbcType=VARCHAR},
+      </if>
+      <if test="discription != null">
+        #{discription,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="receiver != null">
+        #{receiver,jdbcType=VARCHAR},
+      </if>
+      <if test="receivetime != null">
+        #{receivetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="packager != null">
+        #{packager,jdbcType=VARCHAR},
+      </if>
+      <if test="packagetime != null">
+        #{packagetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="determiner != null">
+        #{determiner,jdbcType=VARCHAR},
+      </if>
+      <if test="determinedes != null">
+        #{determinedes,jdbcType=VARCHAR},
+      </if>
+      <if test="determinetime != null">
+        #{determinetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pricer != null">
+        #{pricer,jdbcType=VARCHAR},
+      </if>
+      <if test="pricetime != null">
+        #{pricetime,jdbcType=VARCHAR},
+      </if>
+      <if test="payer != null">
+        #{payer,jdbcType=VARCHAR},
+      </if>
+      <if test="paytime != null">
+        #{paytime,jdbcType=VARCHAR},
+      </if>
+      <if test="sendtransportno != null">
+        #{sendtransportno,jdbcType=VARCHAR},
+      </if>
+      <if test="sendtime != null">
+        #{sendtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="usertime != null">
+        #{usertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creater != null">
+        #{creater,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fj != null">
+        #{fj,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.yycoin.entity.THgListlogExample" resultType="java.lang.Long">
+    select count(*) from t_hg_listlog
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_hg_listlog
+    <set>
+      <if test="record.id != null">
+        Id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.backid != null">
+        backid = #{record.backid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.estimateid != null">
+        estimateid = #{record.estimateid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.transportno != null">
+        transportno = #{record.transportno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fromer != null">
+        fromer = #{record.fromer,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mobile != null">
+        mobile = #{record.mobile,jdbcType=INTEGER},
+      </if>
+      <if test="record.province != null">
+        province = #{record.province,jdbcType=VARCHAR},
+      </if>
+      <if test="record.city != null">
+        city = #{record.city,jdbcType=VARCHAR},
+      </if>
+      <if test="record.address != null">
+        address = #{record.address,jdbcType=VARCHAR},
+      </if>
+      <if test="record.productdis != null">
+        productdis = #{record.productdis,jdbcType=VARCHAR},
+      </if>
+      <if test="record.discription != null">
+        discription = #{record.discription,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=VARCHAR},
+      </if>
+      <if test="record.receiver != null">
+        receiver = #{record.receiver,jdbcType=VARCHAR},
+      </if>
+      <if test="record.receivetime != null">
+        receivetime = #{record.receivetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.packager != null">
+        packager = #{record.packager,jdbcType=VARCHAR},
+      </if>
+      <if test="record.packagetime != null">
+        packagetime = #{record.packagetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.determiner != null">
+        determiner = #{record.determiner,jdbcType=VARCHAR},
+      </if>
+      <if test="record.determinedes != null">
+        determinedes = #{record.determinedes,jdbcType=VARCHAR},
+      </if>
+      <if test="record.determinetime != null">
+        determinetime = #{record.determinetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.pricer != null">
+        pricer = #{record.pricer,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pricetime != null">
+        pricetime = #{record.pricetime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.payer != null">
+        payer = #{record.payer,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paytime != null">
+        paytime = #{record.paytime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sendtransportno != null">
+        sendtransportno = #{record.sendtransportno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sendtime != null">
+        sendtime = #{record.sendtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.usertime != null">
+        usertime = #{record.usertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.creater != null">
+        creater = #{record.creater,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createtime != null">
+        createtime = #{record.createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.fj != null">
+        fj = #{record.fj,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_hg_listlog
+    set Id = #{record.id,jdbcType=INTEGER},
+      backid = #{record.backid,jdbcType=VARCHAR},
+      estimateid = #{record.estimateid,jdbcType=VARCHAR},
+      transportno = #{record.transportno,jdbcType=VARCHAR},
+      fromer = #{record.fromer,jdbcType=VARCHAR},
+      mobile = #{record.mobile,jdbcType=INTEGER},
+      province = #{record.province,jdbcType=VARCHAR},
+      city = #{record.city,jdbcType=VARCHAR},
+      address = #{record.address,jdbcType=VARCHAR},
+      productdis = #{record.productdis,jdbcType=VARCHAR},
+      discription = #{record.discription,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=VARCHAR},
+      receiver = #{record.receiver,jdbcType=VARCHAR},
+      receivetime = #{record.receivetime,jdbcType=TIMESTAMP},
+      packager = #{record.packager,jdbcType=VARCHAR},
+      packagetime = #{record.packagetime,jdbcType=TIMESTAMP},
+      determiner = #{record.determiner,jdbcType=VARCHAR},
+      determinedes = #{record.determinedes,jdbcType=VARCHAR},
+      determinetime = #{record.determinetime,jdbcType=TIMESTAMP},
+      pricer = #{record.pricer,jdbcType=VARCHAR},
+      pricetime = #{record.pricetime,jdbcType=VARCHAR},
+      payer = #{record.payer,jdbcType=VARCHAR},
+      paytime = #{record.paytime,jdbcType=VARCHAR},
+      sendtransportno = #{record.sendtransportno,jdbcType=VARCHAR},
+      sendtime = #{record.sendtime,jdbcType=TIMESTAMP},
+      usertime = #{record.usertime,jdbcType=TIMESTAMP},
+      creater = #{record.creater,jdbcType=VARCHAR},
+      createtime = #{record.createtime,jdbcType=TIMESTAMP},
+      fj = #{record.fj,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.yycoin.entity.THgListlog">
+    update t_hg_listlog
+    <set>
+      <if test="backid != null">
+        backid = #{backid,jdbcType=VARCHAR},
+      </if>
+      <if test="estimateid != null">
+        estimateid = #{estimateid,jdbcType=VARCHAR},
+      </if>
+      <if test="transportno != null">
+        transportno = #{transportno,jdbcType=VARCHAR},
+      </if>
+      <if test="fromer != null">
+        fromer = #{fromer,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=INTEGER},
+      </if>
+      <if test="province != null">
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="productdis != null">
+        productdis = #{productdis,jdbcType=VARCHAR},
+      </if>
+      <if test="discription != null">
+        discription = #{discription,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="receiver != null">
+        receiver = #{receiver,jdbcType=VARCHAR},
+      </if>
+      <if test="receivetime != null">
+        receivetime = #{receivetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="packager != null">
+        packager = #{packager,jdbcType=VARCHAR},
+      </if>
+      <if test="packagetime != null">
+        packagetime = #{packagetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="determiner != null">
+        determiner = #{determiner,jdbcType=VARCHAR},
+      </if>
+      <if test="determinedes != null">
+        determinedes = #{determinedes,jdbcType=VARCHAR},
+      </if>
+      <if test="determinetime != null">
+        determinetime = #{determinetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pricer != null">
+        pricer = #{pricer,jdbcType=VARCHAR},
+      </if>
+      <if test="pricetime != null">
+        pricetime = #{pricetime,jdbcType=VARCHAR},
+      </if>
+      <if test="payer != null">
+        payer = #{payer,jdbcType=VARCHAR},
+      </if>
+      <if test="paytime != null">
+        paytime = #{paytime,jdbcType=VARCHAR},
+      </if>
+      <if test="sendtransportno != null">
+        sendtransportno = #{sendtransportno,jdbcType=VARCHAR},
+      </if>
+      <if test="sendtime != null">
+        sendtime = #{sendtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="usertime != null">
+        usertime = #{usertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creater != null">
+        creater = #{creater,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fj != null">
+        fj = #{fj,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.yycoin.entity.THgListlog">
+    update t_hg_listlog
+    set backid = #{backid,jdbcType=VARCHAR},
+      estimateid = #{estimateid,jdbcType=VARCHAR},
+      transportno = #{transportno,jdbcType=VARCHAR},
+      fromer = #{fromer,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=INTEGER},
+      province = #{province,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      productdis = #{productdis,jdbcType=VARCHAR},
+      discription = #{discription,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      receiver = #{receiver,jdbcType=VARCHAR},
+      receivetime = #{receivetime,jdbcType=TIMESTAMP},
+      packager = #{packager,jdbcType=VARCHAR},
+      packagetime = #{packagetime,jdbcType=TIMESTAMP},
+      determiner = #{determiner,jdbcType=VARCHAR},
+      determinedes = #{determinedes,jdbcType=VARCHAR},
+      determinetime = #{determinetime,jdbcType=TIMESTAMP},
+      pricer = #{pricer,jdbcType=VARCHAR},
+      pricetime = #{pricetime,jdbcType=VARCHAR},
+      payer = #{payer,jdbcType=VARCHAR},
+      paytime = #{paytime,jdbcType=VARCHAR},
+      sendtransportno = #{sendtransportno,jdbcType=VARCHAR},
+      sendtime = #{sendtime,jdbcType=TIMESTAMP},
+      usertime = #{usertime,jdbcType=TIMESTAMP},
+      creater = #{creater,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      fj = #{fj,jdbcType=VARCHAR}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <!--根据手机号查询单号、收货时间-->
+  <select id="findBy" parameterType="String" resultType="map">
+  SELECT backid,receivetime FROM t_hg_listlog where mobile LIKE #{phone}
+  </select>
+
+  <!--根据单号查询信息-->
+  <select id="findByNoId" parameterType="String" resultType="map">
+  SELECT g.backid, g.productdis,e.amount,g.status,g.fromtime,g.receivetime,g.packagetime,g.determinetime,g.paytime,g.determinedes,
+  e.price,g.sendtime,g.sendtransportno,g.usertime
+  FROM t_hg_listlog g LEFT OUTER JOIN  t_hg_estimate e ON (g.estimateid=e.estimateid)
+  WHERE  g.backid LIKE #{NoId}
+  </select>
+
+
+
+
+</mapper>
+
+
+
+
+
+
+

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:context="http://www.springframework.org/schema/context"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.springframework.org/schema/beans"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 扫描service包下所有使用注解的类型 -->
+    <context:component-scan base-package="cn.yycoin.service">
+        <!-- 只扫描标记了Service的类 -->
+        <context:include-filter expression="org.springframework.stereotype.Service"
+                type="annotation"/>
+    </context:component-scan>
+
+    <!-- 扫描dao包下所有使用注解的类型 -->
+    <!--<context:component-scan base-package="cn.yycoin.dao">-->
+    <context:component-scan base-package="cn.yycoin.mapper">
+        <!-- 只扫描标记了Repository的类 -->
+        <context:include-filter expression="org.springframework.stereotype.Repository"
+                type="annotation"/>
+    </context:component-scan>
+
+</beans>
