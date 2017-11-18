@@ -206,7 +206,7 @@
   </select>
   <!--根据(商品名+年份+standard)查询condition-->
   <select id="findCondition" parameterType="map" resultType="String">
-    SELECT DISTINCT t.condition FROM t_hg_priceconfig t
+    SELECT DISTINCT t.condition1 FROM t_hg_priceconfig t
     WHERE t.category LIKE #{cate} AND
           t.year LIKE #{year} AND
           t.standard LIKE #{standard}
