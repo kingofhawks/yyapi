@@ -234,7 +234,7 @@
     WHERE t.category LIKE #{category} AND
            t.year LIKE #{year} AND
            t.standard LIKE #{standard} AND
-           t.condition LIKE #{condition} AND
+           t.condition1 LIKE #{condition1} AND
            t.packaged LIKE #{packaged} AND
            t.certificate LIKE #{certificate}
 

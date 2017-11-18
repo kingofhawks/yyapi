@@ -11,7 +11,7 @@ public class THgPriceconfig {
 
     private String standard;    //规格
 
-    private String condition;   //实物品相
+    private String condition1;   //实物品相
 
     private String packaged;    //包装品相
 
@@ -29,7 +29,7 @@ public class THgPriceconfig {
         this.category = category;
         this.year = year;
         this.standard = standard;
-        this.condition = condition;
+        this.condition1 = condition;
         this.packaged = packaged;
         this.certificate = certificate;
         this.price = price;
@@ -73,12 +73,12 @@ public class THgPriceconfig {
         this.standard = standard == null ? null : standard.trim();
     }
 
-    public String getCondition() {
-        return condition;
+    public String getCondition1() {
+        return condition1;
     }
 
-    public void setCondition(String condition) {
-        this.condition = condition == null ? null : condition.trim();
+    public void setCondition1(String condition1) {
+        this.condition1 = condition1;
     }
 
     public String getPackaged() {
@@ -119,5 +119,21 @@ public class THgPriceconfig {
 
     public void setCreater(String creater) {
         this.creater = creater == null ? null : creater.trim();
+    }
+
+    @Override
+    public String toString() {
+        return "THgPriceconfig{" +
+                "id=" + id +
+                ", category='" + category + '\'' +
+                ", year=" + year +
+                ", standard='" + standard + '\'' +
+                ", condition1='" + condition1 + '\'' +
+                ", packaged='" + packaged + '\'' +
+                ", certificate='" + certificate + '\'' +
+                ", price='" + price + '\'' +
+                ", createtime=" + createtime +
+                ", creater='" + creater + '\'' +
+                '}';
     }
 }
