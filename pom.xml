@@ -188,7 +188,7 @@
 
 
 
-  <build>
-    <finalName>Interface</finalName>
-  </build>
+  <!--<build>-->
+    <!--<finalName>Interface</finalName>-->
+  <!--</build>-->
 </project>

@@ -115,7 +115,7 @@ public class THgController {
         tHg.setCategory(cate);
         tHg.setYear(year);
         tHg.setStandard(standard);
-        tHg.setCondition(condition);
+        tHg.setCondition1(condition);
         //调用Service接口查询condition
         List<String> packagedList = tHgService.findPackagedList(tHg);
         return packagedList;
@@ -141,7 +141,7 @@ public class THgController {
         tHg.setCategory(cate);
         tHg.setYear(year);
         tHg.setStandard(standard);
-        tHg.setCondition(condition);
+        tHg.setCondition1(condition);
         tHg.setPackaged(packaged);
         //调用Service接口查询condition
         List<String> certificateList = tHgService.findCertificateList(tHg);
@@ -153,7 +153,7 @@ public class THgController {
     public @ResponseBody String  queryPrice(@RequestParam("cate") String cate,
                                             @RequestParam("year") Integer year,
                                             @RequestParam("standard") String standard,
-                                            @RequestParam("condition1") String condition,
+                                            @RequestParam("condition") String condition,
                                             @RequestParam("packaged") String packaged,
                                             @RequestParam("certificate") String certificate,
                                             @RequestParam("token") String token)throws Exception{

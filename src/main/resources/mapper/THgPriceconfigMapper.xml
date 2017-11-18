@@ -217,7 +217,7 @@
     WHERE t.category LIKE #{category} AND
           t.year LIKE #{year} AND
           t.standard LIKE #{standard} AND
-          t.condition LIKE #{condition}
+          t.condition1 LIKE #{condition1}
   </select>
   <!--根据(商品名+年份+standard+condition+packaged)查询certificate-->
   <select id="findCertificate" parameterType="cn.yycoin.entity.THgPriceconfig" resultType="String">
@@ -225,7 +225,7 @@
     WHERE t.category LIKE #{category} AND
            t.year LIKE #{year} AND
            t.standard LIKE #{standard} AND
-           t.condition LIKE #{condition} AND
+           t.condition1 LIKE #{condition1} AND
           t.packaged LIKE #{packaged}
   </select>
   <!--根据6个字段查询价格-->
