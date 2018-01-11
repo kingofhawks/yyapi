@@ -42,19 +42,18 @@ public class ListController {
             return "205";
         }
 
-//测试先过滤
-//        if(nId == null || nId.trim().length() == 0 || nId.trim().isEmpty() ||
-//                province == null || province.trim().length() == 0 || province.trim().isEmpty() ||
-//                city == null || city.trim().length() == 0 || city.trim().isEmpty() ||
-//                county == null || county.trim().length() == 0 || county.trim().isEmpty() ||
-//                address == null || address.trim().length() == 0 || address.trim().isEmpty() ||
-//                fromer == null || fromer.trim().length() == 0 || fromer.trim().isEmpty() ||
-//                mobile == null || mobile.trim().length() == 0 || mobile.trim().isEmpty() ||
-//                discription == null || discription.trim().length() == 0 || discription.trim().isEmpty() ||
-//                estimateid == null ||
-//                productdis == null || productdis.trim().length() == 0 || productdis.trim().isEmpty()){
-//            return "0";
-//        }
+
+        if(nId == null || nId.trim().length() == 0 || nId.trim().isEmpty() ||
+                province == null || province.trim().length() == 0 || province.trim().isEmpty() ||
+                city == null || city.trim().length() == 0 || city.trim().isEmpty() ||
+                county == null || county.trim().length() == 0 || county.trim().isEmpty() ||
+                address == null || address.trim().length() == 0 || address.trim().isEmpty() ||
+                fromer == null || fromer.trim().length() == 0 || fromer.trim().isEmpty() ||
+                mobile == null || mobile.trim().length() == 0 || mobile.trim().isEmpty() ||
+                discription == null || discription.trim().length() == 0 || discription.trim().isEmpty() ||
+                productdis == null || productdis.trim().length() == 0 || productdis.trim().isEmpty()){
+            return "0";
+        }
 
         THgList  tHgList = new THgList();
         tHgList.setTransportno(nId);
