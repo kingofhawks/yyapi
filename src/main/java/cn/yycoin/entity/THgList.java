@@ -19,7 +19,7 @@ public class THgList {
 
     private String discription;         //备注
 
-    private Integer estimateid;         //预估流程单号
+    private String estimateid;         //预估流程单号
 
     private String productdis;          //回购商品信息
 
@@ -95,11 +95,11 @@ public class THgList {
         this.discription = discription == null ? null : discription.trim();
     }
 
-    public Integer getEstimateid() {
+    public String getEstimateid() {
         return estimateid;
     }
 
-    public void setEstimateid(Integer estimateid) {
+    public void setEstimateid(String estimateid) {
         this.estimateid = estimateid;
     }
 

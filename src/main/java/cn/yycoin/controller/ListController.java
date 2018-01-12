@@ -34,7 +34,7 @@ public class ListController {
                                          @RequestParam("fromer") String fromer,
                                          @RequestParam("mobile") String mobile,
                                          @RequestParam("discription") String discription,
-                                         @RequestParam("estimateid") Integer estimateid,
+                                         @RequestParam("estimateid") String estimateid,
                                          @RequestParam("productdis") String productdis,
                                          @RequestParam("token") String token) throws Exception{
 
