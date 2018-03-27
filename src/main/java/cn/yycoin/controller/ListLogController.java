@@ -31,11 +31,11 @@ public class ListLogController {
     public @ResponseBody List<String> queryPhone(@RequestParam("phone") String phone,
                                                  @RequestParam("token") String token) throws Exception{
 
-        if(!token.equals(md5(phone))){
-            List<String> b = new ArrayList<String>();
-            b.add("205");
-            return b;
-        }
+//        if(!token.equals(md5(phone))){
+//            List<String> b = new ArrayList<String>();
+//            b.add("205");
+//            return b;
+//        }
 
         //调用Service查询
         // 根据手机号查询单号、收货时间
@@ -49,11 +49,11 @@ public class ListLogController {
     public @ResponseBody List<String> queryNoId(@RequestParam("backId") String NoId,
                                                 @RequestParam("token") String token) throws Exception{
 
-        if(!token.equals(md5(NoId))){
-            List<String> b = new ArrayList<String>();
-            b.add("205");
-            return b;
-        }
+//        if(!token.equals(md5(NoId))){
+//            List<String> b = new ArrayList<String>();
+//            b.add("205");
+//            return b;
+//        }
 
         //调用Service查询
         // 根据单号查询信息

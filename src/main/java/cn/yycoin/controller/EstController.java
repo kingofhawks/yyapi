@@ -41,9 +41,9 @@ public class EstController {
                                        @RequestParam("estimateid") String estimateid,
                                         @RequestParam("token") String token)throws Exception{
 
-        if(!token.equals(md5(cate))){
-            return "205";
-        }
+//        if(!token.equals(md5(cate))){
+//            return "205";
+//        }
 
         if(cate == null || cate.trim().length() == 0 || cate.trim().isEmpty() ||
                 year == null ||

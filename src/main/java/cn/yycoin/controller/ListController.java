@@ -38,9 +38,9 @@ public class ListController {
                                          @RequestParam("productdis") String productdis,
                                          @RequestParam("token") String token) throws Exception{
 
-        if(!token.equals(md5(nId))){
-            return "205";
-        }
+//        if(!token.equals(md5(nId))){
+//            return "205";
+//        }
 
 
         if(nId == null || nId.trim().length() == 0 || nId.trim().isEmpty() ||

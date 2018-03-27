@@ -32,11 +32,11 @@ public class THgController {
     @RequestMapping(value = "queryCate",method = RequestMethod.GET)
     public @ResponseBody List<String>  responseJson(@RequestParam("token") String token) throws Exception{
 
-        if(!token.equals(md5("token"))){
-            List<String> b = new ArrayList<String>();
-            b.add("205");
-            return b;
-        }
+//        if(!token.equals(md5("token"))){
+//            List<String> b = new ArrayList<String>();
+//            b.add("205");
+//            return b;
+//        }
 
         //调用Service接口查询商品名
         List<String> tHgList = tHgService.findTHgList();
@@ -48,11 +48,11 @@ public class THgController {
     public @ResponseBody List<String> queryYear(@RequestParam("cate") String cate,
                                                 @RequestParam("token") String token) throws Exception{
 
-        if(!token.equals(md5(cate))){
-            List<String> b = new ArrayList<String>();
-            b.add("205");
-            return b;
-        }
+//        if(!token.equals(md5(cate))){
+//            List<String> b = new ArrayList<String>();
+//            b.add("205");
+//            return b;
+//        }
 
 
         //调用Service接口查询年份
@@ -65,11 +65,11 @@ public class THgController {
     public @ResponseBody List<String> queryStandard(@RequestParam("cate") String cate,
                                                     @RequestParam("year") String year,
                                                     @RequestParam("token") String token)throws Exception{
-        if(!token.equals(md5(cate))){
-            List<String> b = new ArrayList<String>();
-            b.add("205");
-            return b;
-        }
+//        if(!token.equals(md5(cate))){
+//            List<String> b = new ArrayList<String>();
+//            b.add("205");
+//            return b;
+//        }
 
 
         //调用Service接口查询standard
@@ -84,11 +84,11 @@ public class THgController {
                                                     @RequestParam("standard") String standard,
                                                      @RequestParam("token") String token)throws Exception{
 
-        if(!token.equals(md5(cate))){
-            List<String> b = new ArrayList<String>();
-            b.add("205");
-            return b;
-        }
+//        if(!token.equals(md5(cate))){
+//            List<String> b = new ArrayList<String>();
+//            b.add("205");
+//            return b;
+//        }
 
 
         //调用Service接口查询condition
@@ -104,11 +104,11 @@ public class THgController {
                                                     @RequestParam("condition") String condition,
                                                     @RequestParam("token") String token)throws Exception{
 
-        if(!token.equals(md5(cate))){
-            List<String> b = new ArrayList<String>();
-            b.add("205");
-            return b;
-        }
+//        if(!token.equals(md5(cate))){
+//            List<String> b = new ArrayList<String>();
+//            b.add("205");
+//            return b;
+//        }
 
 
         THgPriceconfig tHg = new THgPriceconfig();
@@ -130,11 +130,11 @@ public class THgController {
                                                        @RequestParam("packaged") String packaged,
                                                        @RequestParam("token") String token)throws Exception{
 
-        if(!token.equals(md5(cate))){
-            List<String> b = new ArrayList<String>();
-            b.add("205");
-            return b;
-        }
+//        if(!token.equals(md5(cate))){
+//            List<String> b = new ArrayList<String>();
+//            b.add("205");
+//            return b;
+//        }
 
 
         THgPriceconfig tHg = new THgPriceconfig();
@@ -158,10 +158,10 @@ public class THgController {
                                             @RequestParam("certificate") String certificate,
                                             @RequestParam("token") String token)throws Exception{
 
-        if(!token.equals(md5(cate))){
-
-            return "205";
-        }
+//        if(!token.equals(md5(cate))){
+//
+//            return "205";
+//        }
 
         if(cate == null || cate.trim().length() == 0 || cate.trim().isEmpty()){
             return "0";
