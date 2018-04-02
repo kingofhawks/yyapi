@@ -99,7 +99,7 @@ public class THgController {
     //根据(商品名+年份+standard+condition)查询packaged
     @RequestMapping(value ="queryPackaged",method = RequestMethod.POST)
     public @ResponseBody List<String> queryPackaged(@RequestParam("cate") String cate,
-                                                    @RequestParam("year") Integer year,
+                                                    @RequestParam("year") String year,
                                                     @RequestParam("standard") String standard,
                                                     @RequestParam("condition") String condition,
                                                     @RequestParam("token") String token)throws Exception{
@@ -124,7 +124,7 @@ public class THgController {
     //根据(商品名+年份+standard+condition+packaged)查询certificate
     @RequestMapping(value ="queryCertificate",method = RequestMethod.POST)
     public @ResponseBody List<String> queryCertificate(@RequestParam("cate") String cate,
-                                                       @RequestParam("year") Integer year,
+                                                       @RequestParam("year") String year,
                                                        @RequestParam("standard") String standard,
                                                        @RequestParam("condition") String condition,
                                                        @RequestParam("packaged") String packaged,
@@ -151,7 +151,7 @@ public class THgController {
     //根据6个字段查询价格
     @RequestMapping(value="queryPrice",method = RequestMethod.POST)
     public @ResponseBody String  queryPrice(@RequestParam("cate") String cate,
-                                            @RequestParam("year") Integer year,
+                                            @RequestParam("year") String year,
                                             @RequestParam("standard") String standard,
                                             @RequestParam("condition") String condition,
                                             @RequestParam("packaged") String packaged,

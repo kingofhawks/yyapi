@@ -7,7 +7,7 @@ public class THgPriceconfig {
 
     private String category;    //品类
 
-    private Integer year;       //年份
+    private String year;       //年份
 
     private String standard;    //规格
 
@@ -24,7 +24,7 @@ public class THgPriceconfig {
     private String creater;     //创建人
 
 
-    public THgPriceconfig(Integer id, String category, Integer year, String standard, String condition, String packaged, String certificate, String price, Date createtime, String creater) {
+    public THgPriceconfig(Integer id, String category, String year, String standard, String condition, String packaged, String certificate, String price, Date createtime, String creater) {
         this.id = id;
         this.category = category;
         this.year = year;
@@ -57,11 +57,11 @@ public class THgPriceconfig {
         this.category = category == null ? null : category.trim();
     }
 
-    public Integer getYear() {
+    public String getYear() {
         return year;
     }
 
-    public void setYear(Integer year) {
+    public void setYear(String year) {
         this.year = year;
     }
 
