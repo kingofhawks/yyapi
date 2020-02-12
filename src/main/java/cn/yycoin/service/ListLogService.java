@@ -17,5 +17,5 @@ public interface ListLogService {
     //根据单号查询信息
     public List<String> findByNoId(String NoId) throws Exception;
 
-
+    void updateListLogStatus(String backId, String status) throws Exception;
 }

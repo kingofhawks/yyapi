@@ -588,6 +588,10 @@
     where Id = #{id,jdbcType=INTEGER}
   </update>
 
+  <update id="updateListLogStatus" parameterType="map">
+    update t_hg_listlog set status = #{status}  where backid = #{backid}
+  </update>
+
   <!--根据手机号查询单号、收货时间-->
   <select id="findBy" parameterType="String" resultType="map">
   SELECT backid,receivetime FROM t_hg_listlog where mobile LIKE #{phone}

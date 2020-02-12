@@ -30,4 +30,10 @@ public class ListLogServiceImpl  implements ListLogService{
     public List<String> findByNoId(String NoId) throws Exception {
         return tHgListlogMapper.findByNoId(NoId);
     }
+
+
+    @Override
+    public void updateListLogStatus(String backId, String status) throws Exception {
+        tHgListlogMapper.updateListLogStatus(backId, status);
+    }
 }

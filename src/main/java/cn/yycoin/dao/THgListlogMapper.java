@@ -35,4 +35,6 @@ public interface THgListlogMapper {
 
     //根据单号查询信息
     List<String> findByNoId(String NoId);
+
+    void updateListLogStatus(@Param("backid") String backid, @Param("status") String status);
 }

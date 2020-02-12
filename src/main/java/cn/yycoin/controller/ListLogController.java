@@ -63,6 +63,16 @@ public class ListLogController {
     }
 
 
+    @RequestMapping(value = "updateListLogStatus",method = RequestMethod.POST)
+    public @ResponseBody List<String> updateListLogStatus(@RequestParam("backId") String NoId,
+                                                @RequestParam("status") String status) throws Exception{
+        listLogService.updateListLogStatus(NoId, status);
+
+        List<String> result = new ArrayList<>();
+        result.add("OK");
+        return result;
+    }
+
 }
 
 
