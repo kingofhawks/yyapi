@@ -1,6 +1,7 @@
 package cn.yycoin.controller;
 
 import cn.yycoin.entity.THgEstimate;
+import cn.yycoin.entity.THgPay;
 import cn.yycoin.service.EstService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -80,6 +81,38 @@ public class EstController {
     }
 
 
+    @RequestMapping(value = "addPay",method = RequestMethod.POST)
+    public @ResponseBody String addPay(@RequestParam("bank") String bank,
+                                       @RequestParam("bankNo") String bankNo,
+                                       @RequestParam("khname") String khname,
+                                       @RequestParam("money") String money,
+                                       @RequestParam("status") String status)throws Exception{
+        if(bank == null || bank.trim().length() == 0 || bank.trim().isEmpty() ||
+                bankNo == null || bankNo.trim().length() == 0 || bankNo.trim().isEmpty() ||
+                khname == null || khname.trim().length() == 0 || khname.trim().isEmpty() ||
+                money == null || money.trim().length() == 0 || money.trim().isEmpty() ||
+                status == null || status.trim().length() == 0 || status.trim().isEmpty() ){
+            return "0";
+        }
 
+        THgPay pay = new THgPay();
+        //将系统日期设置成数据库日期类型
+        Date date = new Date();
+        String nowTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date);//将时间格式转换成符合Timestamp要求的格式.
+        Timestamp ctime =Timestamp.valueOf(nowTime);//把时间转换
+        pay.setCreatetime(ctime);
+
+        pay.setBank(bank);
+        pay.setBankNo(bankNo);
+        pay.setKhname(khname);
+        pay.setMoney(money);
+        pay.setStatus(status);
+        pay.setCreater("黄金回购");
+        pay.setCreatetime(ctime);
+
+        //调用Service添加
+        estService.addPay(pay);
+        return "1";
+    }
 
 }

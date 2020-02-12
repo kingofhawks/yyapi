@@ -183,6 +183,13 @@
       </if>
     </trim>
   </insert>
+
+  <insert id="addPay" parameterType="cn.yycoin.entity.THgPay">
+    insert into t_hg_pay (bank, bankno,khname,money,status,creater,createtime)
+    values (#{bank}, #{bankNo},
+    #{khname}, #{money}, #{status},#{creater},#{createtime,jdbcType=TIMESTAMP})
+  </insert>
+
   <select id="countByExample" parameterType="cn.yycoin.entity.THgEstimateExample" resultType="java.lang.Long">
     select count(*) from t_hg_estimate
     <if test="_parameter != null">
