@@ -8,6 +8,8 @@ import java.util.Date;
 public class THgPay {
     private Integer id;
 
+    private String backid;
+
     private String bank;
 
     private String bankNo; //银行网点名称
@@ -84,5 +86,13 @@ public class THgPay {
 
     public void setCreatetime(Date createtime) {
         this.createtime = createtime;
+    }
+
+    public String getBackid() {
+        return backid;
+    }
+
+    public void setBackid(String backid) {
+        this.backid = backid;
     }
 }

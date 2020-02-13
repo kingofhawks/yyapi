@@ -82,12 +82,14 @@ public class EstController {
 
 
     @RequestMapping(value = "addPay",method = RequestMethod.POST)
-    public @ResponseBody String addPay(@RequestParam("bank") String bank,
+    public @ResponseBody String addPay(@RequestParam("backid") String backid,
+                                        @RequestParam("bank") String bank,
                                        @RequestParam("bankNo") String bankNo,
                                        @RequestParam("khname") String khname,
                                        @RequestParam("money") String money,
                                        @RequestParam("status") String status)throws Exception{
-        if(bank == null || bank.trim().length() == 0 || bank.trim().isEmpty() ||
+        if(backid == null || backid.trim().length() == 0 || backid.trim().isEmpty() ||
+                bank == null || bank.trim().length() == 0 || bank.trim().isEmpty() ||
                 bankNo == null || bankNo.trim().length() == 0 || bankNo.trim().isEmpty() ||
                 khname == null || khname.trim().length() == 0 || khname.trim().isEmpty() ||
                 money == null || money.trim().length() == 0 || money.trim().isEmpty() ||
@@ -100,7 +102,6 @@ public class EstController {
         Date date = new Date();
         String nowTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date);//将时间格式转换成符合Timestamp要求的格式.
         Timestamp ctime =Timestamp.valueOf(nowTime);//把时间转换
-        pay.setCreatetime(ctime);
 
         pay.setBank(bank);
         pay.setBankNo(bankNo);
@@ -109,6 +110,7 @@ public class EstController {
         pay.setStatus(status);
         pay.setCreater("黄金回购");
         pay.setCreatetime(ctime);
+        pay.setBackid(backid);
 
         //调用Service添加
         estService.addPay(pay);

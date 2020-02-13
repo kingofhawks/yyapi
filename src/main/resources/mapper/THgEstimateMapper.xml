@@ -185,9 +185,9 @@
   </insert>
 
   <insert id="addPay" parameterType="cn.yycoin.entity.THgPay">
-    insert into t_hg_pay (bank, bankno,khname,money,status,creater,createtime)
+    insert into t_hg_pay (bank, bankno,khname,money,status,backid,creater,createtime)
     values (#{bank}, #{bankNo},
-    #{khname}, #{money}, #{status},#{creater},#{createtime,jdbcType=TIMESTAMP})
+    #{khname}, #{money}, #{status},#{backid},#{creater},#{createtime,jdbcType=TIMESTAMP})
   </insert>
 
   <select id="countByExample" parameterType="cn.yycoin.entity.THgEstimateExample" resultType="java.lang.Long">
